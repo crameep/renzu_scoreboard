@@ -13,8 +13,8 @@ Citizen.CreateThread(function()
     TriggerServerEvent('renzu_scoreboard:playerloaded')
 end)
 
-RegisterNetEvent('esx:setJob')
-AddEventHandler('esx:setJob', function(job)
+RegisterNetEvent('QBCore:Client:OnJobUpdate')
+AddEventHandler('QBCore:Client:OnJobUpdate', function(job)
 	PlayerData.job = job
 	TriggerServerEvent('renzu_scoreboard:setjob',PlayerData.job.name)
 end)
@@ -25,8 +25,8 @@ AddEventHandler('renzu_scoreboard:loaded', function(xPlayer)
     loaded = true
 end)
 
-RegisterNetEvent('esx:playerLoaded')
-AddEventHandler('esx:playerLoaded', function(xPlayer)
+RegisterNetEvent('QBCore:Client:OnPlayerLoaded')
+AddEventHandler('QBCore:Client:OnPlayerLoaded', function(xPlayer)
     Wait(500)
 	TriggerServerEvent('renzu_scoreboard:playerloaded')
 end)

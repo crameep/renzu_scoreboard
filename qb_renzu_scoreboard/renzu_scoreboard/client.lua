@@ -1,5 +1,6 @@
 local open = false
 local loaded = false
+local QBCore = exports['qb-core']:GetCoreObject()
 Citizen.CreateThread(function()
     Wait(100)
     SendNUIMessage({

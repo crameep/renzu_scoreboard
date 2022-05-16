@@ -29,7 +29,7 @@ end
 RegisterServerEvent('renzu_scoreboard:avatarupload')
 AddEventHandler('renzu_scoreboard:avatarupload', function(url)
     local source = tonumber(source)
-    local xPlayer = ESX.GetPlayerFromId(source)
+    local xPlayer = QBCore.Functions.GetPlayer(source)
     if players[source] ~= nil then
         UploadAvatar(xPlayer.identifier, url)
         players[source].image = url
@@ -74,7 +74,7 @@ end)
 RegisterServerEvent('renzu_scoreboard:playerloaded')
 AddEventHandler('renzu_scoreboard:playerloaded', function()
     local source = tonumber(source)
-    local xPlayer = ESX.GetPlayerFromId(source)
+    local xPlayer = QBCore.Functions.GetPlayer(source)
     local initials = math.random(1,#config.RandomAvatars)
     local letters = config.RandomAvatars[initials]
     if xPlayer ~= nil and playernames[xPlayer.identifier] ~= nil and playernames[xPlayer.identifier].firstname ~= nil and playernames[xPlayer.identifier].firstname ~= '' then
@@ -174,7 +174,7 @@ function PopulatePlayer(source)
     local source = tonumber(source)
     list = {} -- FUuu
     for k,v in pairs(players) do
-        local xPlayer = ESX.GetPlayerFromId(tonumber(v.id))
+        local xPlayer = QBCore.Functions.GetPlayer(tonumber(v.id))
         for _, job in pairs(config.whitelistedjobs) do
             local job = job.name
             if whitelistedjobs[job] == nil then
@@ -205,7 +205,7 @@ function PopulatePlayer(source)
     local count = 0
     local temporarylist <const> = list
     for k,v in pairs(players) do count = count + 1 end
-    xPlayer = ESX.GetPlayerFromId(source)
+    xPlayer = QBCore.Functions.GetPlayer(source)
     if xPlayer ~= nil and players[source] ~= nil then
         GlobalState.Player_list = {}
         collectgarbage()
@@ -269,7 +269,7 @@ function Database(plugin,type,query,var)
     local var = var
     local plugin = plugin
     if type == 'fetchAll' and plugin == 'mysql-async' then
-        return MySQL.Sync.fetchAll(query, var)
+        return exports.oxmysql:executeSync(query, var)
     end
     if type == 'execute' and plugin == 'mysql-async' then
         MySQL.Sync.execute(query,var) 

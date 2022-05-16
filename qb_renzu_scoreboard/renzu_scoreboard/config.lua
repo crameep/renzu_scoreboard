@@ -1,5 +1,5 @@
 config = {}
-config.Mysql = 'ghmattisql' -- "ghmattisql", "msyql-async"
+config.Mysql = 'oxmysql' -- "ghmattisql", "msyql-async", oxmysql
 config.css = 'new' -- new or old -- new = 4 column, old 2 column
 config.keybind = 'F10' -- change it whatever keybind do you like -- look more here https://docs.fivem.net/docs/game-references/input-mapper-parameter-ids/keyboard/
 config.logo = 'https://forum.cfx.re/uploads/default/original/4X/b/1/9/b196908c7e5dfcd60aa9dca0020119fa55e184cb.png' -- url of logo

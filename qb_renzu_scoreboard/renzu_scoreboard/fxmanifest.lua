@@ -23,7 +23,7 @@ server_scripts {
 }
 
 shared_scripts {
-	'@qb-core/import.lua',
+
 }
 
 files {

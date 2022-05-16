@@ -5,6 +5,8 @@ local DiscToken = ".XssX9w." -- change this to your own discord token
 local FormattedToken = "Bot " .. DiscToken
 local pings = {}
 local loaded = false
+
+local QBCore = exports['qb-core']:GetCoreObject()
 CreateThread(function()
     Wait(200)
     print("SCOREBOARD LOADED")
@@ -14,7 +16,7 @@ end)
 function UploadAvatar(citizenid, avatar)
     Player.PlayerData.metadata["avatar"] = avatar
     Player.Functions.SetMetaData("avatar", Player.PlayerData.metadata["avatar"])
-    exports.ghmattimysql:execute('UPDATE players SET metadata=@metadata WHERE citizenid=@citizenid', {['@metadata'] = json.encode(Player.PlayerData.metadata), ['@citizenid'] = citizenid})
+    exports.oxmysql:execute('UPDATE players SET metadata=@metadata WHERE citizenid=@citizenid', {['@metadata'] = json.encode(Player.PlayerData.metadata), ['@citizenid'] = citizenid})
 end
 
 RegisterNetEvent('renzu_scoreboard:avatarupload')
